@@ -3,6 +3,7 @@
 #inspiring websites:
 #http://www.cyber-omelette.com/2017/09/automated-plant-watering.html
 #https://tutorials-raspberrypi.de/arduino-raspberry-pi-miteinander-kommunizieren-lassen/
+# 
 
 #used software:
 #- arduino-1.8.5-linux64/windows
@@ -10,11 +11,12 @@
 #- python 2.7
 #- etcher-portable-1.3.1-x64
 #- raspbian-stretch-lite
+# 
 
 #used hardware:
 #- arduino mega 2560 rev 3
 #- raspberry pi 3 model b
-
+# 
  
 #set up: 
 #LINUX: to let arduino run on linux you have to use following commands: 
