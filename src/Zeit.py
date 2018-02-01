@@ -7,16 +7,12 @@ Created on 31.01.2018
 import time
 
 
-class Zeit():
+class Zeit(object):
     
     def __init__(self):  # Konstruktor
         
         self.datum = time.strftime("%d-%m-%Y", time.localtime())  # Attribut: Datum
         self.wochentag = time.strftime("%a", time.localtime())  # Attribut: Wochentag
         self.uhrzeit = time.strftime("%H:%M:%S" , time.localtime())  # Attribut: Uhrzeit
-
- 
-        
-#instanz = Zeit()
 
     
