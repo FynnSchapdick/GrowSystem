@@ -14,17 +14,21 @@ class main():
     print(t.datum.title())
     print(t.datum)
     
-    p = Pflanze(1,200,300,250,(True,False))
+    p = Pflanze(1,200,300,250)
     print(p.id)
     print(p.m1)
     print(p.avg)
     print(p.phase.vegi)
     print(p.phase.bluete)
-    print(p.phase.blueteStart.datum)
-    print(p.phase.blueteEnde)
+    print(p.phase.vegiStart.datum)
+    print(p.phase.vegiEnde.datum)
+    
     
     z = Zelt(1,0.9,0.8,500)
     print(z.id)
+    print(z.listePflanzen)
+    z.listePflanzen.append(p)
+    print(z.listePflanzen)
     
     
     
