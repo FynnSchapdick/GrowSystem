@@ -17,7 +17,7 @@ void setup() {
 void loop() {
   if (Serial.available()) {
     SensorWert = getAvgSensorWert();
-    Serial.print("Feuchtigkeitswert: ");
+    Serial.print("Feuchtigkeitswert:");
     Serial.println(SensorWert,DEC);
     showValue();
     delay(5000);//5 Sekunden, nachher 1800000

@@ -17,5 +17,22 @@ class Phase(object):
         self.blueteStart = Zeit()
         self.blueteEnde = Zeit()
         
+    def startVegi(self):
+        if self.bluete == False & self.vegi == False:
+            self.vegi=True
+            self.bluete=False
+            self.vegiStart=Zeit()
+        else:
+            self.blueteEnde=Zeit()
+            self.bluete=False
     
+    def startBluete(self):
+        if self.vegi==True & self.bluete==False:
+            self.bluete=True
+            self.vegi=False
+            self.vegiEnde=Zeit()
+            self.blueteStart=Zeit()
+        
+        
     
+        
