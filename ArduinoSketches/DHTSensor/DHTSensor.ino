@@ -21,9 +21,9 @@ void loop()
     int chk = DHT.read11(DHT11_PIN);
     t = DHT.temperature / 100;
     h = DHT.humidity / 100;
-    Serial.print("Temperatur: ");
+    Serial.print("Temperatur:");
     Serial.println(t,DEC);
-    Serial.print("L-Feuchtigkeit: ");
+    Serial.print("L-Feuchtigkeit:");
     Serial.println(h,DEC);
     showValues();
     delay(10000);
