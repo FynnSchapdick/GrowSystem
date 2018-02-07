@@ -49,7 +49,7 @@ void getM1Value() {
   }
   digitalWrite(m1_control, LOW); //Sensor off!
   m1_value = avg / 100;
-  Serial.print("M1Value:");
+  Serial.print("M1:");
   Serial.println(m1_value);
   M1onLCD();
   delay(3000);
@@ -67,7 +67,7 @@ void getDhtValue() {
 }
 void getLightValue() {
   l1_value = analogRead(l1_sensor);
-  Serial.print("Light:");
+  Serial.print("Licht:");
   Serial.println(l1_value);
   LightonLCD();
   delay(3000);
