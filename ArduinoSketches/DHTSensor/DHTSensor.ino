@@ -22,9 +22,9 @@ void loop()
     t = DHT.temperature / 100;
     h = DHT.humidity / 100;
     Serial.print("Temperatur: ");
-    Serial.println(t, DEC);
+    Serial.println(t,DEC);
     Serial.print("L-Feuchtigkeit: ");
-    Serial.println(h, DEC);
+    Serial.println(h,DEC);
     showValues();
     delay(10000);
   }
