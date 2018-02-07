@@ -16,6 +16,7 @@ class Zelt:
         self.fanspeed =  f# in Umdrehungen pro Minute
         self.listePflanzen = liste
     
+    def neuesZelt(self):
     
     
         

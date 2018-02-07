@@ -3,17 +3,19 @@ Created on 04.02.2018
 
 @author: Fynn
 '''
-import serial
-import time
+from Pflanze import Pflanze
 
-s = serial.Serial('/dev/ttyACM0', 9600) # Namen ggf. anpassen
-s.isOpen()
-time.sleep(5) # der Arduino resettet nach einer Seriellen Verbindung, daher mus$
+p = Pflanze() #Erzeugt ein Objekt Plfanze
+#print(p.id)
+#print(p.avg)
+p.setId(1010101)
+p.neuePflanze(Pflanze.liste, p)
 
-s.write("test")
-try:
-    while True:
-        response = s.readline()
-        print(response)
-except KeyboardInterrupt:
-    s.close()
+
+for Pflanze in Pflanze.liste:
+    print(Pflanze.id)
+    
+
+
+
+
