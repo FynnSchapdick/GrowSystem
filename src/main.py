@@ -6,7 +6,6 @@ Created on 31.01.2018
 '''
 import serial
 import time
-from Pflanze import Pflanze
 
 for com in range(0,4):
     try:
@@ -29,8 +28,7 @@ for com in range(0,4):
 
 
     
-p = Pflanze()
-       
+
     
     
     
