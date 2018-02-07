@@ -19,8 +19,9 @@ for com in range(0,4):
         time.sleep(5)
         board.write("test")
         try:
-            response = board.readline()
-            print(response)
+            while True:
+                response = board.readline()
+                print(response)
         except KeyboardInterrupt:
             board.close()
     except:
