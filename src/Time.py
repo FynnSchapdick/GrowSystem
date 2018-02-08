@@ -7,7 +7,7 @@ Created on 31.01.2018
 import time
 
 
-class Zeit(object):
+class Time(object):
     
     def __init__(self):  # Konstruktor
         

@@ -5,7 +5,7 @@ Created on 31.01.2018
 @version: 0.0.1
 '''
 from Phase import Phase
-class Pflanze:
+class Plant:
 
     liste = [] #Liste mit Pflanzen
     
@@ -18,11 +18,11 @@ class Pflanze:
     
     def trinken(self):
         #Ansteuerung der Pumpe
-        return #Ein Objekt Zeit
+        return #Ein Objekt Time
     
     def essen(self):
         # Ansteuerung der Pumpe
-        return #Ein Objekt Zeit
+        return #Ein Objekt Time
     
     def neuePflanze(self,liste,Pflanze):
         self.liste.append(Pflanze)
