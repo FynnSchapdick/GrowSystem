@@ -16,7 +16,7 @@ for com in range(0,4):
         print('Hardware: %s' % board.__str__())
         board.isOpen()
         time.sleep(5)
-        board.write("test")
+        board.write("Arduino")
         try:
             while True:
                 response = board.readline()
