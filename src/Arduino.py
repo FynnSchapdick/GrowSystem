@@ -18,16 +18,14 @@ def getData():
             board.isOpen()
             time.sleep(5)
             board.write("test")
+            response=''
             try:
-                response =''
                 while True:  
                     response += board.readline() + '\n'
+                    if "M1" in response:
+                        print(response)
+                        break
             except KeyboardInterrupt:     
-                if (response != ''):
-                    response += Time.datum + ' ' + Time.wochentag + ' ' + Time.uhrzeit
-                    print(response)
-                else:
-                    print('No data found!')
                 board.close()
         except:
             board.close()

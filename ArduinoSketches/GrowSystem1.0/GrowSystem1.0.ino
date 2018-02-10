@@ -1,7 +1,3 @@
-
-#include <DateTime.h>
-#include <DateTimeStrings.h>
-
 #include <dht.h> //Importing lib for DHT11
 #include <LiquidCrystal.h> //Importing lib for LCDScreen
 
@@ -34,11 +30,9 @@ void setup() {
 }
 
 void loop() {
-  getTimeStamp();
   getM1Value();
   getDhtValue();
   getLightValue();
-  getTimeStamp();
   Serial.println("-------------------------------------------");
   Serial.println("Data got. Finishes the loop");
   Serial.println("-------------------------------------------");
@@ -101,8 +95,5 @@ void LightonLCD() {
   lcd.setCursor(6, 0); //Sets the cursor on colum "0", row "1"
   lcd.print(l1_value);
 }
-void getTimeStamp() {
 
-  
-}
 
