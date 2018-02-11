@@ -21,7 +21,7 @@ for com in range(0, 4):
         try:
             while True:  
                 response += board.readline() + '\n'
-                if "m1:" and "Date:" in response:
+                if "Start" and "End" in response:
                     print(response)
                     break
         except KeyboardInterrupt:     
