@@ -30,23 +30,14 @@ for com in range(0, 4):
     except:
         board.close()
 
-words = response.split('Start').words[1].split('End').words[0].split(' ')
+words = response.split('Start')
+word = words[1]
+words = word.split('End')
+word = words[0]
+words = word.split(' ')
 root = ET.Element("root")
 doc = ET.SubElement(root, "doc")
 for i in range(0,len(words),2):
     ET.SubElement(doc,"data",name=words[i]).text = words[i+1]
 tree = ET.ElementTree(root)
 tree.write("data.xml")
-
-
-
-
-    
-#root = ET.Element("root")
-#doc = ET.SubElement(root, "doc")
-
-#ET.SubElement(doc, "field1", name="blah").text = "some value1"
-#ET.SubElement(doc, "field2", name="asdfasd").text = "some vlaue2"
-
-#tree = ET.ElementTree(root)
-#tree.write("filename.xml")
