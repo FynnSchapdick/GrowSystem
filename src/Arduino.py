@@ -6,6 +6,7 @@ Created on 04.02.2018
 import serial
 import time
 from Time import Time
+class getData():
 for com in range(0, 4):
     try:
         PORT = '/dev/ttyACM' + str(com)

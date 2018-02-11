@@ -36,7 +36,7 @@ void loop() {
   Serial.println("-------------------------------------------");
   Serial.println("Data got. Finishes the loop");
   Serial.println("-------------------------------------------");
-  delay(2000);
+  delay(1);
 
 }
 void getM1Value() {
