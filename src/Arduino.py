@@ -41,3 +41,4 @@ for i in range(0,len(words),2):
     ET.SubElement(doc,"data",name=words[i]).text = words[i+1]
 tree = ET.ElementTree(root)
 tree.write("data.xml")
+
