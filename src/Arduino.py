@@ -30,16 +30,15 @@ for com in range(0, 4):
     except:
         board.close()
 
-a = response.find('m1')
-b = response.find('t1')
-c = response.find('h1')
-d = response.find('l1')
-e = response.find('time')
-f = response.find('date')
+words = response.split('Start').words[1].split('End').words[0].split(' ')
+root = ET.Element("root")
+doc = ET.SubElement(root, "doc")
+for i in range(0,len(words),2):
+    ET.SubElement(doc,"data",name=words[i]).text = words[i+1]
+tree = ET.ElementTree(root)
+tree.write("data.xml")
 
-a2 = response.find('m1:') + 1
 
-print(a+b+c+d+e+f+a2)
 
 
     

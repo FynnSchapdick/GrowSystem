@@ -41,10 +41,10 @@ void loop() {
     getDhtValue();
     getLightValue();
     getTimeStamp();
+    Serial.println("End");
     Serial.println("-----------------------------------");
     Serial.println("    Data got. Finishes the loop    ");
     Serial.println("-----------------------------------");
-    Serial.println("End");
     M1onLCD();
     DhtonLCD();
     LightonLCD();
@@ -66,28 +66,32 @@ void getM1Value() {
   }
   digitalWrite(m1_control, LOW); //Sensor off!
   m1_value = avg / 100;
-  Serial.print("m1:");
-  Serial.println(m1_value);
+  Serial.print("m1 ");
+  Serial.print(m1_value);
+  Serial.print(" ");
 }
 void getDhtValue() {
   int chk = DHT.read11(DHT11_PIN);
   t_value = DHT.temperature / 100;
   h_value = DHT.humidity / 100;
-  Serial.print("t1:");
-  Serial.println(t_value);
-  Serial.print("h1:");
-  Serial.println(h_value);
+  Serial.print("t1 ");
+  Serial.print(t_value);
+  Serial.print(" ");
+  Serial.print("h1 ");
+  Serial.print(h_value);
+  Serial.print(" ");
   delay(2);
 }
 void getLightValue() {
   l1_value = analogRead(l1_sensor);
-  Serial.print("l1:");
-  Serial.println(l1_value);
+  Serial.print("l1 ");
+  Serial.print(l1_value);
+  Serial.print(" ");
   delay(2);
 }
 void M1onLCD() {
   lcd.clear();
-  lcd.print("M1:");
+  lcd.print("M1 ");
   lcd.setCursor(0, 1); //Sets Cursor on colum "0", row "1"
   lcd.print(m1_value);
   delay(5000);
@@ -111,9 +115,10 @@ void LightonLCD() {
   delay(5000);
 }
 void getTimeStamp() {
-  Serial.print("time:");
-  Serial.println(rtc.getTimeStr());
-  Serial.print("date:");
+  Serial.print("time ");
+  Serial.print(rtc.getTimeStr());
+  Serial.print(" ");
+  Serial.print("date ");
   Serial.println(rtc.getDateStr());
 
 }
