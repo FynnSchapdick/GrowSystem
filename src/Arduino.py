@@ -4,6 +4,7 @@ Created on 04.02.2018
 @author: Fynn
 '''
 import serial
+import xml.etree.ElementTree
 import time
 from Time import Time
       
@@ -28,4 +29,8 @@ for com in range(0, 4):
             board.close()
     except:
         board.close()
+e = xml.etree.ElementTree.parse('data.xml').getroot()
+for atype in e.findall('type'):
+    print(atype.get('foobar'))
 
+    
