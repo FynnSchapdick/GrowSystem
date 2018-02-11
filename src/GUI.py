@@ -5,6 +5,7 @@ Created on 11.02.2018
 '''
 import Arduino as getData
 import tkinter as tk
+import Arduino
 
 LARGE_FONT = ("Verdana", 12)
 
@@ -37,7 +38,7 @@ class GrowSystemapp(tk.Tk):
                 
                 
 def qf(self):
-    getData()
+    Arduino.getData
            
 class StartPage(tk.Frame):
     
@@ -47,7 +48,7 @@ class StartPage(tk.Frame):
         
         label.pack(pady=10,padx=10)
         
-        button1 = tk.Button(self,text="Getting Values",command=qf())
+        button1 = tk.Button(self,text="Getting Values",command=qf)
         button1.pack()
         
         
