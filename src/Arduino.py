@@ -4,7 +4,7 @@ Created on 04.02.2018
 @author: Fynn
 '''
 import serial
-import xml.etree.ElementTree
+from xml.dom import minidom
 import time
 from Time import Time
       
@@ -29,8 +29,11 @@ for com in range(0, 4):
             board.close()
     except:
         board.close()
-e = xml.etree.ElementTree.parse('data.xml').getroot()
-for atype in e.findall('type'):
-    print(atype.get('foobar'))
 
+xmldoc = minidom.parse('data.xml')
+itemlist = xmldoc.getElementsByTagName('data')
+print(len(itemlist))
+print(itemlist[0].attributes['name'].value)
+for s in itemlist:
+    print(s.attributes['name'].value)
     
