@@ -4,8 +4,8 @@ Created on 04.02.2018
 @author: Fynn
 '''
 import serial
-from xml.dom import minidom
 import time
+import xml.etree.cElementTree as ET
 from Time import Time
       
 for com in range(0, 4):
@@ -30,10 +30,24 @@ for com in range(0, 4):
     except:
         board.close()
 
-xmldoc = minidom.parse('data.xml')
-itemlist = xmldoc.getElementsByTagName('data')
-print(len(itemlist))
-print(itemlist[0].attributes['name'].value)
-for s in itemlist:
-    print(s.attributes['name'].value)
+a = response.find('m1')
+b = response.find('t1')
+c = response.find('h1')
+d = response.find('l1')
+e = response.find('time')
+f = response.find('date')
+
+a2 = response.find('m1:') + 1
+
+print(a+b+c+d+e+f+a2)
+
+
     
+#root = ET.Element("root")
+#doc = ET.SubElement(root, "doc")
+
+#ET.SubElement(doc, "field1", name="blah").text = "some value1"
+#ET.SubElement(doc, "field2", name="asdfasd").text = "some vlaue2"
+
+#tree = ET.ElementTree(root)
+#tree.write("filename.xml")
