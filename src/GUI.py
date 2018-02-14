@@ -5,10 +5,9 @@ Created on 11.02.2018
 '''
 
 import tkinter as tk
-from tkinter import ttk
-from tkinter import Tk
 import Arduino
 import Data
+from main import response
 
 LARGE_FONT = ("Verdana", 12)
 
@@ -64,8 +63,8 @@ class PageMeasurements(tk.Frame):
         #containerM = tk.Frame(self)
         
         button1 = tk.Button(self,text="Back to Home",command=lambda: controller.show_frame(StartPage))
-        button2 = tk.Button(self,text="Reading Data...",command=lambda: Arduino.Arduino.readData())
-        button3 = tk.Button(self,text="Write to XML",command=lambda: Data.Data.prettyXml())
+        button2 = tk.Button(self,text="Reading Data...",command=lambda: Arduino.Arduino.readData(self))
+        button3 = tk.Button(self,text="Write to XML",command=lambda: Data.Data.prettyXml(response))
         
 
         button1.pack()
