@@ -4,10 +4,10 @@ Created on 11.02.2018
 @author: Fynn
 '''
 
-import tkinter as tk
-import Arduino
+import Tkinter as tk
 import Data
-from main import response
+from Arduino import Arduino
+from Data import Data
 
 LARGE_FONT = ("Verdana", 12)
 
@@ -63,8 +63,8 @@ class PageMeasurements(tk.Frame):
         #containerM = tk.Frame(self)
         
         button1 = tk.Button(self,text="Back to Home",command=lambda: controller.show_frame(StartPage))
-        button2 = tk.Button(self,text="Reading Data...",command=lambda: Arduino.Arduino.readData(self))
-        button3 = tk.Button(self,text="Write to XML",command=lambda: Data.Data.prettyXml(response))
+        button2 = tk.Button(self,text="Reading Data...",command=lambda: Arduino.readData(self))
+        button3 = tk.Button(self,text="Write to XML",command=lambda: Data.prettyXml(self))
         
 
         button1.pack()

@@ -7,7 +7,7 @@ import serial
 import time
 
 class Arduino:
-    
+    response = ''
     def readData(self):
               
         for com in range(0, 4):
@@ -20,12 +20,11 @@ class Arduino:
                 board.isOpen()
                 time.sleep(5)
                 board.write("test")
-                response = ''
                 try:
                     while True:  
-                        response += board.readline() + '\n'
-                        if "Start" and "End" in response:
-                            print(response)
+                        Arduino.response += board.readline() + '\n'
+                        if "Start" and "End" in Arduino.response:
+                            print(Arduino.response)
                             break
                 except KeyboardInterrupt:     
                     board.close()
