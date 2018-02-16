@@ -4,7 +4,7 @@ Created on 11.02.2018
 @author: Fynn
 '''
 
-import Tkinter as tk
+import tkinter as tk
 import Data
 from Arduino import Arduino
 from Data import Data
@@ -64,7 +64,7 @@ class PageMeasurements(tk.Frame):
         
         button1 = tk.Button(self,text="Back to Home",command=lambda: controller.show_frame(StartPage))
         button2 = tk.Button(self,text="Reading Data...",command=lambda: Arduino.readData(self))
-        button3 = tk.Button(self,text="Write to XML",command=lambda: Data.prettyXml(self))
+        button3 = tk.Button(self,text="Write to XML",command=lambda: Data.prettyXml(self,Arduino.response,Data.names))
         
 
         button1.pack()
