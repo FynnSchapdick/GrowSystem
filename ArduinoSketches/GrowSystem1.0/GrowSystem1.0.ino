@@ -2,6 +2,10 @@
 #include <dht.h> //Importing lib for DHT11
 #include <LiquidCrystal.h> //Importing lib for LCDScreen
 
+//Light
+int lo1 = 3;
+bool lo1_isOn = false;
+
 //LCD
 const int rs = 13, en = 12, d4 = 7, d5 = 6, d6 = 5, d7 = 4; //Pins for LCD on arduino
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7); //Object lcd initialize
@@ -24,35 +28,105 @@ float h_value = 0.0; //Humidity value
 int l1_sensor = A1; //Pin for the lightphotoresistor on arduino
 int l1_value = 0; //Lightphotoresistor value
 
+// Serial Data from Pi
+const byte numChars = 32; //Number of Chars, we want to recieve
+char receivedChars[numChars]; //Array to store the received data
+boolean newData = false;
+
 void setup() {
   Serial.begin(9600); //Initialize the serial monitor
   lcd.begin(16, 2); //Initialize Colums(16), Initialize Rows(2)
   rtc.begin(); //Initalize Real-Time-Clock object
   //rtc.setDate(11, 02, 2018);
   //rtc.setTime(4, 33, 0);
-  Serial.println("GrowSystem vers:1.0 Getting data...");
+  Serial.println("-------GrowSystem vers:1.0---------");
   Serial.println("-----------------------------------");
 }
 
 void loop() {
+  recvWithEndMarker();
+  showNewData();
+  command();
+
+
+
   if (Serial.available()) {
     Serial.println("Start");
-    getM1Value();
-    getDhtValue();
-    getLightValue();
-    getTimeStamp();
+
     Serial.println("End");
     Serial.println("-----------------------------------");
     Serial.println("    Data got. Finishes the loop    ");
     Serial.println("-----------------------------------");
-    M1onLCD();
-    DhtonLCD();
-    LightonLCD();
-    TimeonLCD();
+
     delay(20000);
+  }
+}
+void command() {
+  char water1on[] = "water1on";
+  char light1on[] = "light1on";
+  char water1off[] = "water1off";
+  char light1off[] = "light1off";
+  char values[] = "values";
+  switch (receivedChars) {
+    case water1on:
+      //turn waterpump1 on
+      break;
+    case water1off:
+      //turn waterpump1 off
+      break;
+    case light1on:
+      //turn light1 on
+      break;
+    case light1off:
+      //turn light1 off
+      break;
+    case values:
+      //get Values
+      break;
+    default:
+    break;
   }
 
 
+}
+void recvWithEndMarker() {
+  static byte ndx = 0;
+  char endMarker = '\n';
+  char rc;
+
+  // if (Serial.available() > 0) {
+  while (Serial.available() > 0 && newData == false) {
+    rc = Serial.read();
+
+    if (rc != endMarker) {
+      receivedChars[ndx] = rc;
+      ndx++;
+      if (ndx >= numChars) {
+        ndx = numChars - 1;
+      }
+    }
+    else {
+      receivedChars[ndx] = '\0'; // terminate the string
+      ndx = 0;
+      newData = true;
+    }
+  }
+}
+void showNewData() {
+  if (newData == true) {
+    Serial.print("in process... ");
+    Serial.println(receivedChars);
+    newData = false;
+  }
+}
+void setLightOn() {
+  digitalWrite(lo1, HIGH);
+  lo1_isOn = true;
+
+}
+void setLightOff() {
+  digitalWrite(lo1, LOW);
+  lo1_isOn = false;
 
 }
 void getM1Value() {
@@ -131,6 +205,5 @@ void TimeonLCD() {
   lcd.print("Date: ");
   lcd.print(rtc.getDateStr());
   delay(5000);
-
 }
 
