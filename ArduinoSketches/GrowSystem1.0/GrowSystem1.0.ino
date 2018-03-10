@@ -13,6 +13,11 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7); //Object lcd initialize
 //Real-Time-Clock
 DS3231  rtc(SDA, SCL);
 
+//Light Out
+int lo1 = 50;
+bool lo1_isOn = False;
+
+
 //Moisture Sensor
 int m1_control = 52; //Pin for the transistor on arduino
 int m1_sensor = A0; // Pin for the moisture sensor on arduino
@@ -52,7 +57,15 @@ void loop() {
 
   if (Serial.available()) {
     Serial.println("Start");
+<<<<<<< HEAD
 
+=======
+    getM1Value();
+    getDhtValue();
+    getLightValue();
+    getTimeStamp();
+    setLight();
+>>>>>>> branch 'master' of https://github.com/jayjah/growSystem.git
     Serial.println("End");
     Serial.println("-----------------------------------");
     Serial.println("    Data got. Finishes the loop    ");
@@ -205,5 +218,12 @@ void TimeonLCD() {
   lcd.print("Date: ");
   lcd.print(rtc.getDateStr());
   delay(5000);
+}
+void setLight() {
+  digitalWrite(lo1, HIGH); //Sensor on!
+  delay(5000);
+  digitalWrite(lo1, LOW); //Sensor off!
+
+  
 }
 
